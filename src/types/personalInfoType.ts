@@ -1,4 +1,5 @@
 export type Inputs = {
-    example: string;
-    exampleRequired: string;
+    name: string;
+    email: string;
+    phone: number;
 };
