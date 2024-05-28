@@ -1,7 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    background-color: #242424;
+@layer base {
+    :root {
+        background-color: hsl(217, 100%, 97%);
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    h1 {
+        color: hsl(213, 96%, 18%);
+    }
+
+    p {
+        font-size: 16px;
+        color: hsl(229, 24%, 87%);
+    }
 }
