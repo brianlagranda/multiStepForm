@@ -1,5 +1,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Inputs } from '../types/personalInfoType';
+import Input from './Input.tsx';
+import Steps from './Steps.tsx';
 
 const PersonalInfo = () => {
     const {
@@ -13,76 +15,64 @@ const PersonalInfo = () => {
     console.log(watch('name'));
 
     return (
-        <div className="mx-auto grid h-full w-3/4 grid-cols-4 rounded-lg bg-neutral-white p-4">
-            <aside className="col-start-1 w-full rounded-lg bg-primary-light-blue p-4">
-                Step
-                <p className="text-black">1</p>
-                <p className="text-black">2</p>
-                <p className="text-black">3</p>
-                <p className="text-black">4</p>
-            </aside>
+        <div className="flex h-screen items-center justify-center">
+            <div className="mx-auto grid w-3/4 max-w-[65%] grid-cols-[2fr_2fr_2fr_1fr] rounded-xl bg-neutral-white p-4 shadow-lg lg:max-w-[50%]">
+                <Steps />
 
-            <div className="col-span-3 col-start-2 mx-auto flex flex-col items-start p-4">
-                <div className="my-4 flex flex-col items-start">
-                    <h1 className="text-3xl font-bold">Personal info</h1>
-                    <p className="">
-                        Please provide your name, email address, and phone
-                        number.
-                    </p>
+                <div className="col-span-3 col-start-2 mx-auto flex flex-col items-start p-4">
+                    <div className="my-4 flex flex-col items-start">
+                        <h1 className="py-2 text-3xl font-bold">
+                            Personal info
+                        </h1>
+                        <p className="mb-4">
+                            Please provide your name, email address, and phone
+                            number.
+                        </p>
+                    </div>
+
+                    <form
+                        onSubmit={handleSubmit(onSubmit)}
+                        className="flex w-full flex-col"
+                    >
+                        <Input
+                            label="Name"
+                            name="name"
+                            placeholder="e.g. Stephen King"
+                            register={register}
+                            required={true}
+                            pattern={/^[A-Za-z]+$/i}
+                            error={errors.name}
+                        />
+
+                        <Input
+                            label="Email Address"
+                            name="email"
+                            placeholder="e.g. stephenking@lorem.com"
+                            type="email"
+                            register={register}
+                            required={true}
+                            error={errors.email}
+                        />
+
+                        <Input
+                            label="Phone Number"
+                            name="phone"
+                            placeholder="e.g. +1 234 567 890"
+                            type="tel"
+                            register={register}
+                            required={true}
+                            error={errors.phone}
+                        />
+
+                        <div className="mt-24 flex w-full justify-end">
+                            <input
+                                type="submit"
+                                className=" h-12 w-1/4 rounded-lg bg-primary-marine-blue text-white hover:bg-primary-marine-blue/85"
+                                value="Next Step"
+                            />
+                        </div>
+                    </form>
                 </div>
-
-                <form
-                    onSubmit={handleSubmit(onSubmit)}
-                    className="flex w-full flex-col"
-                >
-                    <label className="flex text-sm">Name</label>
-                    {errors.name && (
-                        <span className="font-bold text-primary-strawberry-red">
-                            This field is required
-                        </span>
-                    )}
-                    <input
-                        className="mb-4 w-full appearance-none rounded-lg border bg-white p-2.5 text-sm focus:border-primary-purplish-blue focus:bg-white focus:outline-none focus-visible:border-primary-purplish-blue"
-                        defaultValue={''}
-                        placeholder="e.g. Stephen King"
-                        {...register('name', {
-                            required: true,
-                            pattern: /^[A-Za-z]+$/i,
-                        })}
-                    />
-
-                    <label className="flex text-sm">Email Address</label>
-                    {errors.email && (
-                        <span className="font-bold text-primary-strawberry-red">
-                            This field is required
-                        </span>
-                    )}
-                    <input
-                        className="mb-4 w-full appearance-none rounded-lg border bg-white p-2.5 text-sm focus:border-primary-purplish-blue focus:bg-white focus:outline-none focus-visible:border-primary-purplish-blue"
-                        defaultValue={''}
-                        placeholder="e.g. stephenking@lorem.com"
-                        {...register('email', { required: true })}
-                    />
-
-                    <label className="flex text-sm">Phone Number</label>
-                    {errors.phone && (
-                        <span className="font-bold text-primary-strawberry-red">
-                            This field is required
-                        </span>
-                    )}
-                    <input
-                        className="mb-4 w-full appearance-none rounded-lg border bg-white p-2.5 text-sm focus:border-primary-purplish-blue focus:bg-white focus:outline-none focus-visible:border-primary-purplish-blue"
-                        defaultValue={''}
-                        placeholder="e.g. +1 234 567 890"
-                        {...register('phone')}
-                    />
-
-                    <input
-                        type="submit"
-                        className="h-10 w-1/4 rounded-lg bg-primary-marine-blue hover:bg-primary-pastel-blue"
-                        name="Next Step"
-                    />
-                </form>
             </div>
         </div>
     );
