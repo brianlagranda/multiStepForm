@@ -1,23 +1,40 @@
-import { StepProps } from '../types/stepsType.ts';
+import { useLocation } from 'react-router-dom';
+import { StepProps } from '../types/stepsTypes';
 
 const Steps = () => {
+    const location = useLocation();
+
+    const steps = [
+        { number: '1', label: 'YOUR INFO', path: '/' },
+        { number: '2', label: 'SELECT PLAN', path: '/select-plan' },
+        { number: '3', label: 'ADD-ONS', path: '/add-ons' },
+        { number: '4', label: 'SUMMARY', path: '/summary' },
+    ];
+
     return (
         <aside className="w-full rounded-lg bg-[url('../src/assets/images/bg-sidebar-desktop.svg')] bg-no-repeat p-6">
-            <Step number="1">YOUR INFO</Step>
-            <Step number="2">SELECT PLAN</Step>
-            <Step number="3">ADD-ONS</Step>
-            <Step number="4">SUMMARY</Step>
+            {steps.map((step) => (
+                <Step
+                    key={step.number}
+                    number={step.number}
+                    isActive={location.pathname === step.path}
+                >
+                    {step.label}
+                </Step>
+            ))}
         </aside>
     );
 };
 
-const Step: React.FC<StepProps> = ({ number, children }) => {
+const Step: React.FC<StepProps> = ({ number, children, isActive }) => {
     return (
         <div className="mb-4 flex items-center gap-x-4 p-1">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full border text-sm font-medium text-white">
+            <div
+                className={`flex h-8 w-8 items-center justify-center rounded-full border border-primary-light-blue text-sm font-medium ${isActive ? 'bg-primary-light-blue' : 'text-white'}`}
+            >
                 {number}
             </div>
-            <div className="">
+            <div>
                 <p className="text-xs text-neutral-light-gray">STEP {number}</p>
                 <p className="text-sm font-bold tracking-wider text-neutral-white">
                     {children}

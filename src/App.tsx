@@ -1,9 +1,9 @@
-import PersonalInfo from './components/PersonalInfo';
+import MultiStepForm from './MultiStepForm';
 
 function App() {
     return (
         <>
-            <PersonalInfo />
+            <MultiStepForm />
         </>
     );
 }
