@@ -35,7 +35,9 @@ const Step: React.FC<StepProps> = ({ number, children, isActive }) => {
                 {number}
             </div>
             <div>
-                <p className="text-xs text-neutral-light-gray">STEP {number}</p>
+                <p className="text-[13px] tracking-tighter text-neutral-light-gray/80">
+                    STEP {number}
+                </p>
                 <p className="text-sm font-bold tracking-wider text-neutral-white">
                     {children}
                 </p>

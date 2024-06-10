@@ -54,7 +54,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                     <div className="mt-24 flex w-full justify-end">
                         <input
                             type="submit"
-                            className="h-12 w-1/4 rounded-lg bg-primary-marine-blue text-white hover:bg-primary-marine-blue/85"
+                            className="h-12 w-1/4 cursor-pointer rounded-lg bg-primary-marine-blue text-white hover:bg-primary-marine-blue/85"
                             value="Next Step"
                         />
                     </div>

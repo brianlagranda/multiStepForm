@@ -7,7 +7,7 @@ function MultiStepForm() {
     return (
         <Router>
             <div className="flex h-screen items-center justify-center">
-                <div className="mx-auto grid w-3/4 max-w-[65%] grid-cols-[2fr_2fr_2fr_1fr] rounded-xl bg-neutral-white p-4 shadow-lg lg:max-w-[50%]">
+                <div className="mx-auto grid h-[600px] w-3/4 max-w-[65%] grid-cols-[2fr_2fr_2fr_1fr] rounded-xl bg-neutral-white p-4 shadow-xl lg:max-w-[50%]">
                     <Steps />
                     <Routes>
                         <Route path="/" element={<PersonalInfoPage />} />
