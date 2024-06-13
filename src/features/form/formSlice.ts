@@ -17,9 +17,13 @@ const formSlice = createSlice({
         ) {
             state.selectPlan = action.payload;
         },
+        updateAddOns(state, action: PayloadAction<FormState['addOns']>) {
+            state.addOns = action.payload;
+        },
     },
 });
 
-export const { updatePersonalInfo, updateSelectPlan } = formSlice.actions;
+export const { updatePersonalInfo, updateSelectPlan, updateAddOns } =
+    formSlice.actions;
 
 export default formSlice.reducer;

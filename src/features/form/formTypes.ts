@@ -5,8 +5,13 @@ export interface FormState {
         phone: string;
     };
     selectPlan: {
-        plan: string;
+        planType: 'Arcade' | 'Advanced' | 'Pro';
         planSubs: 'Monthly' | 'Yearly';
+    };
+    addOns: {
+        onlineService: boolean;
+        largerStorage: boolean;
+        customizableProfile: boolean;
     };
 }
 
@@ -17,7 +22,12 @@ export const initialState: FormState = {
         phone: '',
     },
     selectPlan: {
-        plan: '',
+        planType: 'Arcade',
         planSubs: 'Monthly',
+    },
+    addOns: {
+        onlineService: false,
+        largerStorage: false,
+        customizableProfile: false,
     },
 };

@@ -12,7 +12,7 @@ const Steps = () => {
     ];
 
     return (
-        <aside className="w-full rounded-lg bg-[url('../src/assets/images/bg-sidebar-desktop.svg')] bg-no-repeat p-6">
+        <aside className="w-full rounded-lg bg-[url('../src/assets/images/bg-sidebar-desktop.svg')] bg-no-repeat p-8">
             {steps.map((step) => (
                 <Step
                     key={step.number}
@@ -38,7 +38,7 @@ const Step: React.FC<StepProps> = ({ number, children, isActive }) => {
                 <p className="text-[13px] tracking-tighter text-neutral-light-gray/80">
                     STEP {number}
                 </p>
-                <p className="text-sm font-bold tracking-wider text-neutral-white">
+                <p className="text-sm font-bold tracking-wider text-neutral-white/90">
                     {children}
                 </p>
             </div>
