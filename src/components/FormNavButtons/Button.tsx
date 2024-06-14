@@ -5,10 +5,10 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ label, onClick, variant }) => {
-    const baseStyles = 'h-12 px-6 cursor-pointer rounded-lg';
+    const baseStyles = 'h-12 cursor-pointer rounded-lg';
 
     const forwardStyles =
-        'bg-primary-marine-blue text-white hover:bg-primary-marine-blue/85';
+        'bg-primary-marine-blue px-6 text-white hover:bg-primary-marine-blue/85';
     const backwardStyles =
         'text-neutral-cool-gray/70 hover:text-primary-marine-blue font-medium';
 
