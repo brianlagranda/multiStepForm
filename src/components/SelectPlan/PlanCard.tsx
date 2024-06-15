@@ -16,8 +16,12 @@ const PlanCard: React.FC<PlanCardProps> = ({
     isYearly,
 }) => {
     return (
-        <div
-            className={`min-w-[140px] cursor-pointer rounded-lg border-[1.5px] p-4 shadow-sm hover:border-primary-marine-blue ${currentPlanType === planType ? ' bg-primary-purplish-blue/5' : ''}`}
+        <label
+            className={`min-w-[140px] cursor-pointer rounded-lg border-[1.5px] p-4 shadow-sm hover:border-primary-marine-blue ${
+                currentPlanType === planType
+                    ? 'border-primary-marine-blue bg-primary-purplish-blue/5'
+                    : ''
+            }`}
         >
             <input
                 type="radio"
@@ -28,7 +32,9 @@ const PlanCard: React.FC<PlanCardProps> = ({
             />
             <div>
                 <img src={imgSrc} alt={`${planType} plan`} />
-                <h3 className="mt-10">{planType}</h3>
+                <h3 className="mt-10 font-bold text-primary-marine-blue">
+                    {planType}
+                </h3>
                 <p>
                     ${planPrice}/{isYearly ? 'yr' : 'mo'}
                 </p>
@@ -38,7 +44,7 @@ const PlanCard: React.FC<PlanCardProps> = ({
                     </p>
                 )}
             </div>
-        </div>
+        </label>
     );
 };
 
