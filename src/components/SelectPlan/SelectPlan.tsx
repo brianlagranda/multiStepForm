@@ -52,7 +52,11 @@ const SelectPlan: React.FC<SelectPlanProps> = ({
                     ))}
                 </div>
                 <div className="mt-8 flex h-12 items-center justify-center rounded-md bg-neutral-magnolia/50">
-                    <span className="mr-4 text-sm">Monthly</span>
+                    <span
+                        className={`mr-4 text-sm font-bold ${checked ? 'text-neutral-cool-gray/70' : 'text-primary-marine-blue'}`}
+                    >
+                        Monthly
+                    </span>
                     <label className="relative inline-flex cursor-pointer items-center">
                         <CustomSwitch
                             checked={checked}
@@ -60,7 +64,11 @@ const SelectPlan: React.FC<SelectPlanProps> = ({
                             inputProps={{ 'aria-label': 'controlled' }}
                         />
                     </label>
-                    <span className="ml-4 text-sm">Yearly</span>
+                    <span
+                        className={`ml-4 text-sm font-bold ${checked ? 'text-primary-marine-blue' : 'text-neutral-cool-gray/70'}`}
+                    >
+                        Yearly
+                    </span>
                 </div>
             </form>
         </>
