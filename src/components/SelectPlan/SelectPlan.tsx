@@ -1,9 +1,9 @@
-import Switch from '@mui/material/Switch/Switch';
 import { PlanSubscription, PlanType } from '../../types/selectPlanTypes';
 import PlanCard from './PlanCard';
 import arcadeImg from '../../assets/images/icon-arcade.svg';
 import advancedImg from '../../assets/images/icon-advanced.svg';
 import proImg from '../../assets/images/icon-pro.svg';
+import CustomSwitch from './CustomSwitch';
 
 interface SelectPlanProps {
     planType: PlanType;
@@ -54,7 +54,7 @@ const SelectPlan: React.FC<SelectPlanProps> = ({
                 <div className="mt-8 flex h-12 items-center justify-center rounded-md bg-neutral-magnolia/50">
                     <span className="mr-4 text-sm">Monthly</span>
                     <label className="relative inline-flex cursor-pointer items-center">
-                        <Switch
+                        <CustomSwitch
                             checked={checked}
                             onChange={onPlanSubsChange}
                             inputProps={{ 'aria-label': 'controlled' }}
