@@ -17,8 +17,11 @@ const formSlice = createSlice({
         ) {
             state.selectPlan = action.payload;
         },
-        updateAddOns(state, action: PayloadAction<FormState['addOns']>) {
-            state.addOns = action.payload;
+        updateAddOns(
+            state,
+            action: PayloadAction<Partial<FormState['addOns']>>
+        ) {
+            state.addOns = { ...state.addOns, ...action.payload };
         },
     },
 });
