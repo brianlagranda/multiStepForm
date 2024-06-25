@@ -34,7 +34,7 @@ const MultiStepForm: React.FC = () => {
     const showBackButton = currentPathIndex > 0;
 
     return (
-        <div className="flex h-screen items-center justify-center">
+        <div className="flex h-screen select-none items-center justify-center">
             <div className="mx-auto grid h-[600px] w-3/4 max-w-[65%] grid-cols-[2fr_2fr_2fr_1fr] rounded-xl bg-neutral-white p-4 shadow-xl lg:max-w-[50%]">
                 <Steps />
                 <div className="col-span-3 col-start-2 mx-auto flex w-full flex-col items-start px-28 py-4">

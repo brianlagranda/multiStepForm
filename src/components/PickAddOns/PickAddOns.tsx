@@ -47,13 +47,17 @@ const PickAddOns: React.FC<AddOnsProps> = ({
     return (
         <>
             <div className="my-3.5 flex w-full flex-col items-start">
-                <h1 className="py-2 text-3xl font-bold">Select Add-Ons</h1>
+                <h1 className="py-2 text-3xl font-bold">Pick Add-Ons</h1>
                 <p className="mb-4">
                     Add-ons help enhance your gaming experience.
                 </p>
             </div>
-            <form id="select-add-ons-form" onSubmit={onSubmit}>
-                <div className="flex flex-col gap-4">
+            <form
+                id="select-add-ons-form"
+                onSubmit={onSubmit}
+                className="w-full"
+            >
+                <div className="mt-2 flex flex-col gap-4">
                     {addOnsTypes.map((addOn) => (
                         <AddOnsCard
                             key={addOn.name}

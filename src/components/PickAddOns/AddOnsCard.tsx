@@ -17,29 +17,18 @@ const AddOnsCard: React.FC<AddOnsCardProps> = ({
     period,
     onChange,
 }) => {
-    const handleClick = () => {
-        const event = {
-            target: {
-                name,
-                checked: !checked,
-            },
-        } as unknown as React.ChangeEvent<HTMLInputElement>;
-        onChange(event);
-    };
-
     return (
-        <div
-            onClick={handleClick}
-            className={`flex w-full cursor-pointer items-center rounded-lg border p-4 ${checked ? 'border-primary-purplish-blue bg-primary-purplish-blue/5' : ''}`}
+        <label
+            className={`flex w-full cursor-pointer items-center justify-between rounded-lg border p-4 hover:border-primary-purplish-blue ${checked ? 'border-primary-purplish-blue bg-primary-purplish-blue/5' : ''}`}
         >
             <input
                 type="checkbox"
                 name={name}
                 checked={checked}
                 onChange={onChange}
-                className="cursor-pointer"
+                className="m-2 h-4 w-4 cursor-pointer accent-primary-purplish-blue"
             />
-            <div className="flex justify-between">
+            <div className="ml-2 flex w-full items-center justify-between">
                 <div>
                     <span className="ml-2 font-bold">{label}</span>
                     <p className="ml-2 text-sm text-neutral-cool-gray">
@@ -52,7 +41,7 @@ const AddOnsCard: React.FC<AddOnsCardProps> = ({
                     </span>
                 </div>
             </div>
-        </div>
+        </label>
     );
 };
 
