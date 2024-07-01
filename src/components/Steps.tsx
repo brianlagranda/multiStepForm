@@ -17,7 +17,11 @@ const Steps = () => {
                 <Step
                     key={step.number}
                     number={step.number}
-                    isActive={location.pathname === step.path}
+                    isActive={
+                        location.pathname === step.path ||
+                        (step.number === '4' &&
+                            location.pathname === '/thank-you')
+                    }
                 >
                     {step.label}
                 </Step>
