@@ -4,12 +4,22 @@ import SelectPlanPage from './pages/SelectPlanPage';
 import PickAddOnsPage from './pages/PickAddOnsPage';
 import Steps from './components/Steps';
 import FormNavButtons from './components/FormNavButtons/FormNavButtons';
+import SummaryPage from './pages/SummaryPage';
+import ThankYou from './components/ThankYou/ThankYou';
 
 const MultiStepForm: React.FC = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const paths = ['/', '/select-plan', '/add-ons', '/summary'];
+    const formIds: { [key: string]: string } = {
+        '/': 'personal-info-form',
+        '/select-plan': 'select-plan-form',
+        '/add-ons': 'add-ons-form',
+        '/summary': 'summary-form',
+    };
+
+    const paths = Object.keys(formIds);
+    const currentPath = location.pathname.slice(1);
     const currentPathIndex = paths.indexOf(location.pathname);
 
     const handleBack = () => {
@@ -19,19 +29,20 @@ const MultiStepForm: React.FC = () => {
     };
 
     const handleForward = () => {
-        const formId =
-            location.pathname === '/'
-                ? 'personal-info-form'
-                : 'select-plan-form';
-        const form = document.getElementById(formId);
+        const formId = formIds[location.pathname];
+        const form = formId ? document.getElementById(formId) : null;
+
         if (form) {
             form.dispatchEvent(
                 new Event('submit', { cancelable: true, bubbles: true })
             );
+        } else if (currentPathIndex < paths.length - 1) {
+            navigate(paths[currentPathIndex + 1]);
         }
     };
 
     const showBackButton = currentPathIndex > 0;
+    const showFormNavButtons = currentPathIndex !== -1;
 
     return (
         <div className="flex h-screen select-none items-center justify-center">
@@ -45,12 +56,17 @@ const MultiStepForm: React.FC = () => {
                             element={<SelectPlanPage />}
                         />
                         <Route path="/add-ons" element={<PickAddOnsPage />} />
+                        <Route path="/summary" element={<SummaryPage />} />
+                        <Route path="/thank-you" element={<ThankYou />} />
                     </Routes>
-                    <FormNavButtons
-                        onBack={handleBack}
-                        onForward={handleForward}
-                        showBackButton={showBackButton}
-                    />
+                    {showFormNavButtons && (
+                        <FormNavButtons
+                            onBack={handleBack}
+                            onForward={handleForward}
+                            showBackButton={showBackButton}
+                            currentPath={currentPath}
+                        />
+                    )}
                 </div>
             </div>
         </div>
