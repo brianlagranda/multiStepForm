@@ -17,6 +17,7 @@ interface InputProps<T extends FieldValues> {
         message: string;
     };
     error?: FieldError;
+    requiredMessage?: string;
 }
 
 const Input = <T extends FieldValues>({
@@ -28,13 +29,14 @@ const Input = <T extends FieldValues>({
     required = false,
     pattern,
     error,
+    requiredMessage = 'This field is required',
 }: InputProps<T>) => (
     <div className="mb-6 w-full">
         <div className="flex h-6 justify-between pb-1.5">
             <label className="flex text-sm font-medium">{label}</label>
             {error && (
                 <span className="text-[14px] font-bold text-primary-strawberry-red">
-                    This field is required
+                    {error.message || requiredMessage}
                 </span>
             )}
         </div>

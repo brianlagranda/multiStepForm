@@ -32,8 +32,9 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                     placeholder="e.g. Stephen King"
                     register={register}
                     required={true}
+                    requiredMessage="This field is required"
                     pattern={{
-                        value: /^[A-Za-z]+$/i,
+                        value: /^[A-Za-z\s]+$/i,
                         message: 'Name can only contain letters and spaces',
                     }}
                     error={errors.name}
@@ -45,6 +46,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                     type="email"
                     register={register}
                     required={true}
+                    requiredMessage="This field is required"
                     pattern={{
                         value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                         message: 'Please enter a valid email address',
@@ -58,6 +60,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
                     type="tel"
                     register={register}
                     required={true}
+                    requiredMessage="This field is required"
                     pattern={{
                         value: /^[+]?[0-9\s\-()]{10,}$/,
                         message: 'Please enter a valid phone number',
