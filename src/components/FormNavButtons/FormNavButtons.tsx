@@ -4,12 +4,14 @@ interface FormNavButtonsProps {
     onBack: () => void;
     onForward: () => void;
     showBackButton: boolean;
+    currentPath: string;
 }
 
 const FormNavButtons: React.FC<FormNavButtonsProps> = ({
     onBack,
     onForward,
     showBackButton,
+    currentPath,
 }) => {
     return (
         <div
@@ -18,7 +20,11 @@ const FormNavButtons: React.FC<FormNavButtonsProps> = ({
             {showBackButton && (
                 <Button label="Go Back" onClick={onBack} variant="backward" />
             )}
-            <Button label="Next Step" onClick={onForward} variant="forward" />
+            <Button
+                label={`${currentPath === 'summary' ? 'Confirm' : 'Next Step'}`}
+                onClick={onForward}
+                variant="forward"
+            />
         </div>
     );
 };
