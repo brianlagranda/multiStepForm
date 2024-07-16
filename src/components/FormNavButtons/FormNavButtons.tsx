@@ -15,7 +15,7 @@ const FormNavButtons: React.FC<FormNavButtonsProps> = ({
 }) => {
     return (
         <div
-            className={`col-span-3 col-start-2 flex h-full w-full items-end ${showBackButton ? 'justify-between' : 'justify-end'}`}
+            className={`mt-auto flex w-full p-4 md:col-span-3 md:col-start-2 md:row-start-3 md:items-end md:p-0 ${showBackButton ? 'justify-between' : 'justify-end'}`}
         >
             {showBackButton && (
                 <Button label="Go Back" onClick={onBack} variant="backward" />

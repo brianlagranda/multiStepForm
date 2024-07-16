@@ -12,7 +12,7 @@ const Steps = () => {
     ];
 
     return (
-        <aside className="w-full rounded-lg bg-[url('../src/assets/images/bg-sidebar-desktop.svg')] bg-no-repeat p-8">
+        <aside className="flex w-full items-start justify-center gap-2 bg-[url('../src/assets/images/bg-sidebar-mobile.svg')] bg-cover bg-no-repeat py-6 md:block md:h-full md:rounded-lg md:bg-[url('../src/assets/images/bg-sidebar-desktop.svg')] md:p-8">
             {steps.map((step) => (
                 <Step
                     key={step.number}
@@ -32,13 +32,13 @@ const Steps = () => {
 
 const Step: React.FC<StepProps> = ({ number, children, isActive }) => {
     return (
-        <div className="mb-4 flex items-center gap-x-4 p-1">
+        <div className="mb-4 flex items-center p-1 md:gap-x-4">
             <div
-                className={`flex h-8 w-8 items-center justify-center rounded-full border border-primary-light-blue text-sm font-medium ${isActive ? 'bg-primary-light-blue' : 'text-white'}`}
+                className={`flex h-8 w-8 items-center justify-center rounded-full border border-primary-light-blue text-sm font-bold ${isActive ? 'bg-primary-light-blue' : 'text-white'}`}
             >
                 {number}
             </div>
-            <div>
+            <div className="hidden md:block">
                 <p className="text-[13px] tracking-tighter text-neutral-light-gray/80">
                     STEP {number}
                 </p>

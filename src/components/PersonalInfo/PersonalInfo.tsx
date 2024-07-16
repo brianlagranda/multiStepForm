@@ -15,16 +15,16 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({
 }) => {
     return (
         <>
-            <div className="my-3.5 flex flex-col items-start">
-                <h1 className="py-2 text-3xl font-bold">Personal info</h1>
-                <p className="mb-4">
+            <div className="my-2 flex w-full flex-col items-start px-2 md:my-3.5">
+                <h1 className="py-2">Personal info</h1>
+                <p className="mb-2 md:mb-4">
                     Please provide your name, email address, and phone number.
                 </p>
             </div>
             <form
                 id="personal-info-form"
                 onSubmit={onSubmit}
-                className="mt-1 flex w-full flex-col"
+                className="flex w-full flex-col md:mt-1"
             >
                 <Input
                     label="Name"

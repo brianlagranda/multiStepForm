@@ -47,7 +47,7 @@ const PickAddOns: React.FC<AddOnsProps> = ({
     return (
         <>
             <div className="my-3.5 flex w-full flex-col items-start">
-                <h1 className="py-2 text-3xl font-bold">Pick Add-Ons</h1>
+                <h1 className="py-2">Pick Add-Ons</h1>
                 <p className="mb-4">
                     Add-ons help enhance your gaming experience.
                 </p>

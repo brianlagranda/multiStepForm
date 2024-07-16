@@ -19,24 +19,26 @@ const AddOnsCard: React.FC<AddOnsCardProps> = ({
 }) => {
     return (
         <label
-            className={`flex w-full cursor-pointer items-center justify-between rounded-lg border p-4 hover:border-primary-purplish-blue ${checked ? 'border-primary-purplish-blue bg-primary-purplish-blue/5' : ''}`}
+            className={`flex h-16 w-full cursor-pointer items-center justify-between rounded-lg border p-4 hover:border-primary-purplish-blue md:h-full ${checked ? 'border-primary-purplish-blue bg-primary-purplish-blue/5' : ''}`}
         >
             <input
                 type="checkbox"
                 name={name}
                 checked={checked}
                 onChange={onChange}
-                className="m-2 h-4 w-4 cursor-pointer accent-primary-purplish-blue"
+                className="h-4 w-4 cursor-pointer accent-primary-purplish-blue md:m-2"
             />
-            <div className="ml-2 flex w-full items-center justify-between">
+            <div className=" ml-0 flex w-full items-center justify-between md:ml-2">
                 <div>
-                    <span className="ml-2 font-bold">{label}</span>
-                    <p className="ml-2 text-sm text-neutral-cool-gray">
+                    <span className="md:text-md ml-2 text-sm font-bold">
+                        {label}
+                    </span>
+                    <p className="ml-2 text-xs text-neutral-cool-gray md:text-sm">
                         {description}
                     </p>
                 </div>
                 <div>
-                    <span className="text-sm font-bold text-primary-purplish-blue/65">
+                    <span className="text-xs font-bold text-primary-purplish-blue/65 md:text-sm">
                         +${price}/{period}
                     </span>
                 </div>

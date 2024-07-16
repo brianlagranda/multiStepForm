@@ -18,7 +18,7 @@ const Summary: React.FC<SummaryProps> = ({
     return (
         <>
             <div className="my-3.5 flex w-full flex-col items-start">
-                <h1 className="py-2 text-3xl font-bold">Finishing up</h1>
+                <h1 className="py-2">Finishing up</h1>
                 <p className="mb-4">
                     Double-check everything looks OK before confirming.
                 </p>
@@ -40,7 +40,7 @@ const Summary: React.FC<SummaryProps> = ({
                             Change
                         </button>
                     </div>
-                    <span className=" font-bold text-primary-marine-blue">
+                    <span className="text-sm font-bold text-primary-marine-blue md:text-base">
                         ${planPrice}/{isYearly ? 'yr' : 'mo'}
                     </span>
                 </div>
@@ -69,7 +69,7 @@ const Summary: React.FC<SummaryProps> = ({
                 <span className="text-sm text-neutral-cool-gray">
                     Total ({isYearly ? 'per year' : 'per month'})
                 </span>
-                <span className="text-xl font-bold text-primary-purplish-blue">
+                <span className="text-base font-bold text-primary-purplish-blue md:text-xl">
                     +${totalPrice}/{isYearly ? 'yr' : 'mo'}
                 </span>
             </div>

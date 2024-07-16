@@ -30,13 +30,13 @@ const SelectPlan: React.FC<SelectPlanProps> = ({
     return (
         <>
             <div className="my-3.5 flex w-full flex-col items-start">
-                <h1 className="py-2 text-3xl font-bold">Select your plan</h1>
-                <p className="mb-4">
+                <h1 className="py-2">Select your plan</h1>
+                <p className="mb-4 pr-4">
                     You have the option of monthly or yearly billing.
                 </p>
             </div>
-            <form id="select-plan-form" onSubmit={onSubmit}>
-                <div className="flex gap-4">
+            <form id="select-plan-form" onSubmit={onSubmit} className="w-full">
+                <div className="flex w-full flex-col gap-4 md:flex-row">
                     {planTypes.map((plan) => (
                         <PlanCard
                             key={plan.type}
