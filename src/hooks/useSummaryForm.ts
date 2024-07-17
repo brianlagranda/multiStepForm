@@ -1,8 +1,10 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { RootState } from '../store/store';
+import { persistor, RootState } from '../store/store';
+import { resetForm } from '../features/form/formSlice';
 
 export const useSummaryForm = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const { selectPlan, addOns: addOnsState } = useSelector(
         (state: RootState) => state.form
@@ -42,6 +44,8 @@ export const useSummaryForm = () => {
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
+        dispatch(resetForm());
+        persistor.purge();
         navigate('/thank-you');
     };
 

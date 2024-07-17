@@ -23,10 +23,13 @@ const formSlice = createSlice({
         ) {
             state.addOns = { ...state.addOns, ...action.payload };
         },
+        resetForm() {
+            return initialState;
+        },
     },
 });
 
-export const { updatePersonalInfo, updateSelectPlan, updateAddOns } =
+export const { updatePersonalInfo, updateSelectPlan, updateAddOns, resetForm } =
     formSlice.actions;
 
 export default formSlice.reducer;
